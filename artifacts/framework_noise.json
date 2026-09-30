@@ -1,0 +1,655 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-30T08:18:15+00:00",
+  "inputs": {
+    "run1": "artifacts/framework_comparison.json",
+    "run2": "artifacts/framework_comparison_run2.json",
+    "benchmark_results": "artifacts/benchmark_results.json",
+    "actual_answers": "artifacts/actual_answers.json",
+    "case_count": 20,
+    "run1_generated_at": "2026-09-30T08:06:20+00:00",
+    "run2_generated_at": "2026-09-30T08:09:35+00:00",
+    "judge_model": "gpt-6-luna",
+    "judge_reasoning_effort": "low",
+    "generator_model": "gpt-6-luna",
+    "generator_reasoning_effort": "low",
+    "judge_is_generator_model": true,
+    "lab_summary": {
+      "total": 20,
+      "passed": 4,
+      "pass_rate": 0.2,
+      "avg_faithfulness": 0.5814531075566364,
+      "avg_relevance": 0.44619213375232425,
+      "avg_completeness": 0.6440050277060838,
+      "avg_context_recall": 0.803563397817269,
+      "avg_context_precision": 0.9052083333333334,
+      "failure_types": {
+        "off_topic": 12,
+        "irrelevant": 3,
+        "hallucination": 1
+      }
+    }
+  },
+  "noise_floor": {
+    "ragas": {
+      "faithfulness": {
+        "paired_n": 20,
+        "mean_run1": 0.799,
+        "mean_run2": 0.7823,
+        "mean_absolute_difference": 0.1234,
+        "max_absolute_difference": 0.5,
+        "pass_fail_flip_count": 2,
+        "pass_fail_flip_share": 0.1,
+        "pass_fail_flip_ids": [
+          "M01",
+          "A02"
+        ],
+        "run_to_run_pearson": 0.7605,
+        "run_to_run_spearman": 0.7342
+      },
+      "answer_relevancy": {
+        "paired_n": 20,
+        "mean_run1": 0.6931,
+        "mean_run2": 0.6242,
+        "mean_absolute_difference": 0.0834,
+        "max_absolute_difference": 0.621,
+        "pass_fail_flip_count": 2,
+        "pass_fail_flip_share": 0.1,
+        "pass_fail_flip_ids": [
+          "M02",
+          "A01"
+        ],
+        "run_to_run_pearson": 0.8109,
+        "run_to_run_spearman": 0.8991
+      },
+      "context_recall": {
+        "paired_n": 20,
+        "mean_run1": 0.7833,
+        "mean_run2": 0.8083,
+        "mean_absolute_difference": 0.025,
+        "max_absolute_difference": 0.5,
+        "pass_fail_flip_count": 0,
+        "pass_fail_flip_share": 0.0,
+        "pass_fail_flip_ids": [],
+        "run_to_run_pearson": 0.9016,
+        "run_to_run_spearman": 0.8992
+      },
+      "context_precision": {
+        "paired_n": 20,
+        "mean_run1": 0.9211,
+        "mean_run2": 0.8961,
+        "mean_absolute_difference": 0.025,
+        "max_absolute_difference": 0.5,
+        "pass_fail_flip_count": 0,
+        "pass_fail_flip_share": 0.0,
+        "pass_fail_flip_ids": [],
+        "run_to_run_pearson": 0.87,
+        "run_to_run_spearman": 0.8536
+      }
+    },
+    "deepeval": {
+      "faithfulness": {
+        "paired_n": 20,
+        "mean_run1": 1.0,
+        "mean_run2": 0.9667,
+        "mean_absolute_difference": 0.0333,
+        "max_absolute_difference": 0.6667,
+        "pass_fail_flip_count": 1,
+        "pass_fail_flip_share": 0.05,
+        "pass_fail_flip_ids": [
+          "H05"
+        ],
+        "run_to_run_pearson": null,
+        "run_to_run_spearman": null
+      },
+      "answer_relevancy": {
+        "paired_n": 20,
+        "mean_run1": 1.0,
+        "mean_run2": 0.9667,
+        "mean_absolute_difference": 0.0333,
+        "max_absolute_difference": 0.6667,
+        "pass_fail_flip_count": 1,
+        "pass_fail_flip_share": 0.05,
+        "pass_fail_flip_ids": [
+          "A01"
+        ],
+        "run_to_run_pearson": null,
+        "run_to_run_spearman": null
+      },
+      "context_recall": {
+        "paired_n": 20,
+        "mean_run1": 0.85,
+        "mean_run2": 0.825,
+        "mean_absolute_difference": 0.0583,
+        "max_absolute_difference": 0.5,
+        "pass_fail_flip_count": 0,
+        "pass_fail_flip_share": 0.0,
+        "pass_fail_flip_ids": [],
+        "run_to_run_pearson": 0.7529,
+        "run_to_run_spearman": 0.7489
+      },
+      "context_precision": {
+        "paired_n": 20,
+        "mean_run1": 0.9336,
+        "mean_run2": 0.9294,
+        "mean_absolute_difference": 0.0042,
+        "max_absolute_difference": 0.0833,
+        "pass_fail_flip_count": 0,
+        "pass_fail_flip_share": 0.0,
+        "pass_fail_flip_ids": [],
+        "run_to_run_pearson": 0.9948,
+        "run_to_run_spearman": 0.9189
+      }
+    }
+  },
+  "between_frameworks": {
+    "faithfulness": {
+      "run1": {
+        "n": 20,
+        "pearson": null,
+        "spearman": null
+      },
+      "run2": {
+        "n": 20,
+        "pearson": 0.0968,
+        "spearman": 0.1308
+      },
+      "mean_of_runs": {
+        "n": 20,
+        "pearson": 0.176,
+        "spearman": 0.2338
+      }
+    },
+    "answer_relevancy": {
+      "run1": {
+        "n": 20,
+        "pearson": null,
+        "spearman": null
+      },
+      "run2": {
+        "n": 20,
+        "pearson": 0.4926,
+        "spearman": 0.3387
+      },
+      "mean_of_runs": {
+        "n": 20,
+        "pearson": 0.3318,
+        "spearman": 0.2984
+      }
+    },
+    "context_recall": {
+      "run1": {
+        "n": 20,
+        "pearson": 0.5495,
+        "spearman": 0.538
+      },
+      "run2": {
+        "n": 20,
+        "pearson": 0.9556,
+        "spearman": 0.9594
+      },
+      "mean_of_runs": {
+        "n": 20,
+        "pearson": 0.824,
+        "spearman": 0.8532
+      }
+    },
+    "context_precision": {
+      "run1": {
+        "n": 20,
+        "pearson": 0.8109,
+        "spearman": 0.6075
+      },
+      "run2": {
+        "n": 20,
+        "pearson": 0.6905,
+        "spearman": 0.4191
+      },
+      "mean_of_runs": {
+        "n": 20,
+        "pearson": 0.7753,
+        "spearman": 0.4279
+      }
+    }
+  },
+  "vs_lab_heuristic": {
+    "ragas": {
+      "faithfulness": {
+        "run1": {
+          "n": 20,
+          "pearson": 0.0504,
+          "spearman": 0.0415
+        },
+        "run2": {
+          "n": 20,
+          "pearson": 0.1996,
+          "spearman": 0.2341
+        },
+        "mean_of_runs": {
+          "n": 20,
+          "pearson": 0.1294,
+          "spearman": 0.1487
+        }
+      },
+      "answer_relevancy": {
+        "run1": {
+          "n": 20,
+          "pearson": 0.1221,
+          "spearman": 0.2572
+        },
+        "run2": {
+          "n": 20,
+          "pearson": 0.1996,
+          "spearman": 0.2847
+        },
+        "mean_of_runs": {
+          "n": 20,
+          "pearson": 0.175,
+          "spearman": 0.3159
+        }
+      },
+      "context_recall": {
+        "run1": {
+          "n": 20,
+          "pearson": 0.6457,
+          "spearman": 0.708
+        },
+        "run2": {
+          "n": 20,
+          "pearson": 0.5965,
+          "spearman": 0.6282
+        },
+        "mean_of_runs": {
+          "n": 20,
+          "pearson": 0.6372,
+          "spearman": 0.6939
+        }
+      },
+      "context_precision": {
+        "run1": {
+          "n": 20,
+          "pearson": 0.5613,
+          "spearman": 0.3625
+        },
+        "run2": {
+          "n": 20,
+          "pearson": 0.479,
+          "spearman": 0.3925
+        },
+        "mean_of_runs": {
+          "n": 20,
+          "pearson": 0.536,
+          "spearman": 0.385
+        }
+      }
+    },
+    "deepeval": {
+      "faithfulness": {
+        "run1": {
+          "n": 20,
+          "pearson": null,
+          "spearman": null
+        },
+        "run2": {
+          "n": 20,
+          "pearson": -0.0156,
+          "spearman": -0.0597
+        },
+        "mean_of_runs": {
+          "n": 20,
+          "pearson": -0.0156,
+          "spearman": -0.0597
+        }
+      },
+      "answer_relevancy": {
+        "run1": {
+          "n": 20,
+          "pearson": null,
+          "spearman": null
+        },
+        "run2": {
+          "n": 20,
+          "pearson": 0.3141,
+          "spearman": 0.3383
+        },
+        "mean_of_runs": {
+          "n": 20,
+          "pearson": 0.3141,
+          "spearman": 0.3383
+        }
+      },
+      "context_recall": {
+        "run1": {
+          "n": 20,
+          "pearson": 0.4258,
+          "spearman": 0.4086
+        },
+        "run2": {
+          "n": 20,
+          "pearson": 0.5495,
+          "spearman": 0.5791
+        },
+        "mean_of_runs": {
+          "n": 20,
+          "pearson": 0.5224,
+          "spearman": 0.5623
+        }
+      },
+      "context_precision": {
+        "run1": {
+          "n": 20,
+          "pearson": 0.6808,
+          "spearman": 0.2909
+        },
+        "run2": {
+          "n": 20,
+          "pearson": 0.6682,
+          "spearman": 0.2135
+        },
+        "mean_of_runs": {
+          "n": 20,
+          "pearson": 0.6754,
+          "spearman": 0.221
+        }
+      }
+    }
+  },
+  "failing_cases": {
+    "rule": "a case is flagged when any of its 4 metrics is < 0.5",
+    "lab_heuristic_failures": {
+      "count": 16,
+      "ids": [
+        "E02",
+        "E03",
+        "M02",
+        "M03",
+        "M04",
+        "M05",
+        "M06",
+        "M07",
+        "H01",
+        "H02",
+        "H03",
+        "H04",
+        "H05",
+        "A01",
+        "A02",
+        "A03"
+      ]
+    },
+    "by_run": {
+      "run1": {
+        "ragas": [
+          "E02",
+          "M04",
+          "H01",
+          "H02",
+          "H05",
+          "A01",
+          "A02"
+        ],
+        "deepeval": [
+          "A01"
+        ],
+        "ragas_vs_deepeval": {
+          "both": [
+            "A01"
+          ],
+          "ragas_only": [
+            "E02",
+            "M04",
+            "H01",
+            "H02",
+            "H05",
+            "A02"
+          ],
+          "deepeval_only": []
+        },
+        "ragas_vs_lab": {
+          "both": [
+            "E02",
+            "M04",
+            "H01",
+            "H02",
+            "H05",
+            "A01",
+            "A02"
+          ],
+          "ragas_only": [],
+          "lab_only": [
+            "E03",
+            "M02",
+            "M03",
+            "M05",
+            "M06",
+            "M07",
+            "H03",
+            "H04",
+            "A03"
+          ]
+        },
+        "deepeval_vs_lab": {
+          "both": [
+            "A01"
+          ],
+          "deepeval_only": [],
+          "lab_only": [
+            "E02",
+            "E03",
+            "M02",
+            "M03",
+            "M04",
+            "M05",
+            "M06",
+            "M07",
+            "H01",
+            "H02",
+            "H03",
+            "H04",
+            "H05",
+            "A02",
+            "A03"
+          ]
+        }
+      },
+      "run2": {
+        "ragas": [
+          "E02",
+          "M01",
+          "M02",
+          "M04",
+          "H01",
+          "H02",
+          "H05",
+          "A01"
+        ],
+        "deepeval": [
+          "H05",
+          "A01"
+        ],
+        "ragas_vs_deepeval": {
+          "both": [
+            "H05",
+            "A01"
+          ],
+          "ragas_only": [
+            "E02",
+            "M01",
+            "M02",
+            "M04",
+            "H01",
+            "H02"
+          ],
+          "deepeval_only": []
+        },
+        "ragas_vs_lab": {
+          "both": [
+            "E02",
+            "M02",
+            "M04",
+            "H01",
+            "H02",
+            "H05",
+            "A01"
+          ],
+          "ragas_only": [
+            "M01"
+          ],
+          "lab_only": [
+            "E03",
+            "M03",
+            "M05",
+            "M06",
+            "M07",
+            "H03",
+            "H04",
+            "A02",
+            "A03"
+          ]
+        },
+        "deepeval_vs_lab": {
+          "both": [
+            "H05",
+            "A01"
+          ],
+          "deepeval_only": [],
+          "lab_only": [
+            "E02",
+            "E03",
+            "M02",
+            "M03",
+            "M04",
+            "M05",
+            "M06",
+            "M07",
+            "H01",
+            "H02",
+            "H03",
+            "H04",
+            "A02",
+            "A03"
+          ]
+        }
+      }
+    },
+    "stable_across_runs": {
+      "ragas": {
+        "flagged_in_both_runs": [
+          "E02",
+          "M04",
+          "H01",
+          "H02",
+          "H05",
+          "A01"
+        ],
+        "flagged_in_one_run_only": [
+          "A02",
+          "M01",
+          "M02"
+        ]
+      },
+      "deepeval": {
+        "flagged_in_both_runs": [
+          "A01"
+        ],
+        "flagged_in_one_run_only": [
+          "H05"
+        ]
+      }
+    },
+    "per_metric_vs_lab": {
+      "faithfulness": {
+        "lab": [
+          "M02",
+          "M07",
+          "H02",
+          "A01",
+          "A03"
+        ],
+        "ragas_run1": [
+          "H01",
+          "H02",
+          "A02"
+        ],
+        "ragas_run2": [
+          "M01",
+          "H01",
+          "H02"
+        ],
+        "deepeval_run1": [],
+        "deepeval_run2": [
+          "H05"
+        ]
+      },
+      "answer_relevancy": {
+        "lab": [
+          "E02",
+          "E03",
+          "M02",
+          "M03",
+          "M05",
+          "M06",
+          "H01",
+          "H03",
+          "H04",
+          "H05",
+          "A01",
+          "A02",
+          "A03"
+        ],
+        "ragas_run1": [
+          "E02",
+          "M04"
+        ],
+        "ragas_run2": [
+          "E02",
+          "M02",
+          "M04",
+          "A01"
+        ],
+        "deepeval_run1": [],
+        "deepeval_run2": [
+          "A01"
+        ]
+      },
+      "context_recall": {
+        "lab": [
+          "A03"
+        ],
+        "ragas_run1": [
+          "H05"
+        ],
+        "ragas_run2": [
+          "H05"
+        ],
+        "deepeval_run1": [],
+        "deepeval_run2": []
+      },
+      "context_precision": {
+        "lab": [
+          "A01"
+        ],
+        "ragas_run1": [
+          "A01"
+        ],
+        "ragas_run2": [
+          "A01"
+        ],
+        "deepeval_run1": [
+          "A01"
+        ],
+        "deepeval_run2": [
+          "A01"
+        ]
+      }
+    }
+  },
+  "caveats": [
+    "The judge cannot run at temperature 0 (only the default is accepted), so two identical runs differ; noise_floor measures that.",
+    "The lab faithfulness scores the answer against the GOLD context, while both frameworks judge it against the RETRIEVED chunks: not like-for-like.",
+    "The lab relevance is token overlap between answer and question; answer_relevancy in the frameworks is an LLM judgement: different method.",
+    "The lab context_recall/context_precision use token overlap with the expected answer over the retrieved chunks: same inputs, different method.",
+    "The lab pass rule also uses completeness, which has no counterpart in either framework's four metrics.",
+    "The judge is the same model as the generator: self-preference risk."
+  ]
+}

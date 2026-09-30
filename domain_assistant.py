@@ -250,16 +250,30 @@ class OpenAIGenerator:
             raise RuntimeError("OPENAI_API_KEY is missing from .env")
         if not self.model:
             raise RuntimeError("OPENAI_MODEL is missing from .env")
+        # Reasoning models such as gpt-6-luna reject `temperature` and take a
+        # reasoning effort instead. Leave OPENAI_REASONING_EFFORT unset for
+        # gpt-4o-mini, which keeps the original temperature=0 request.
+        self.reasoning_effort = os.getenv("OPENAI_REASONING_EFFORT", "").strip()
         self.client = OpenAI(api_key=api_key)
         self.max_output_tokens = max_output_tokens
 
     def generate(self, prompt: str) -> str:
+        sampling: dict[str, Any] = (
+            {"reasoning": {"effort": self.reasoning_effort}}
+            if self.reasoning_effort
+            else {"temperature": 0}
+        )
         response = self.client.responses.create(
             model=self.model,
             input=prompt,
-            temperature=0,
             max_output_tokens=self.max_output_tokens,
+            **sampling,
         )
+        if response.status == "incomplete":
+            reason = getattr(response.incomplete_details, "reason", "unknown")
+            raise RuntimeError(
+                f"OpenAI answer was cut off ({reason}); raise max_output_tokens"
+            )
         answer = response.output_text.strip()
         if not answer:
             raise RuntimeError("OpenAI returned an empty answer")
@@ -459,6 +473,8 @@ def generate_actual_answers(
         "agent": {
             "name": "domain-assistant",
             "model": model,
+            "reasoning_effort": getattr(assistant.generator, "reasoning_effort", "")
+            or None,
             "top_k": top_k,
             "prompt_version": "1.0",
         },
